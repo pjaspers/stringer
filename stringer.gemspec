@@ -7,9 +7,9 @@ Gem::Specification.new do |gem|
   gem.name          = "stringer"
   gem.version       = Stringer::VERSION
   gem.authors       = ["pjaspers"]
-  gem.email         = ["junkiesxl@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.email         = ["piet@jaspe.rs"]
+  gem.description   = %q{Stringer: a wrapper for genstrings}
+  gem.summary       = %q{Stringer adds merging capabilities to genstrings}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
