@@ -4,7 +4,7 @@ require "stringer/processor"
 
 module Stringer
 
-  def run(locale, options = {})
+  def self.run(locale, options = {})
     Stringer::Processor.new(locale, options).run
   end
 
