@@ -53,3 +53,5 @@ Which will output something like this:
 ## Contributing
 
 Fork it! Improve it! Test it! Rewrite it! (technology)
+
+[![Build Status](https://secure.travis-ci.org/pjaspers/stringer.png?branch=master)](http://travis-ci.org/pjaspers/stringer)
