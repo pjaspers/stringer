@@ -43,9 +43,12 @@ Which will output something like this:
 ## The future
 
 `0.2.0`: Add a bin, so the Rake-file shenanigans are no longer necessary.
+
 `0.3.0`: Ditch the dependency `genstrings` and fetch strings ourselves.
+
 ...
-`1.0.0`:
+
+`1.0.0`: Installed by default on OSX TomCat
 
 ## Contributing
 
