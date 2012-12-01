@@ -24,6 +24,9 @@ Then execute:
 
 Now you can create a Rakefile, and add these lines:
 
+    require "stringer"
+
+    desc "Run genstrings to update the Localizable.strings files"
     task :localize do
       %w(en fr nl).each do |locale|
         Stringer.run(locale)
