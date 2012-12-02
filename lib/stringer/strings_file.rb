@@ -13,7 +13,7 @@ module Stringer
     end
 
     def fetch_lines_at(path)
-      IO.readlines(path, :mode => "rb:UTF-16LE").collect do |l|
+      IO.readlines(path, mode: "rb:UTF-16LE").collect do |l|
         l.encode("UTF-8").gsub("\uFEFF", "")
       end
     end
