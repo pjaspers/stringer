@@ -48,6 +48,7 @@ Which will output something like this:
 ## The future
 
 `0.1.x`: Add support for ruby 1.8.7 and up.
+
 `0.2.0`: Add a bin, so the Rake-file shenanigans are no longer necessary.
 
 `0.3.0`: Ditch the dependency `genstrings` and fetch strings ourselves.
