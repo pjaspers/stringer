@@ -56,6 +56,10 @@ Which will output something like this:
 
 `1.0.0`: Installed by default on OSX TomCat
 
+## The past
+
+First "version" of stringer was a ruby script by [@inferis](http://twitter.com/inferis), it grew out of client projects at [10to1](http://10to1.be) and turned into a gem on one saturday night.
+
 ## Contributing
 
 Fork it! Improve it! Test it! Rewrite it! (technology)
