@@ -18,4 +18,13 @@ describe Stringer::Processor do
     end
 
   end
+
+  describe "setting the correct directories" do
+    it "should be started from the current directory" do
+      Dir.stubs(:pwd).returns('/Users/dev/Project1')
+
+      processor = Stringer::Processor.new("nl")
+      processor.dir_path_for_dir_with_same_name_as_parent_dir.must_equal "/Users/dev/Project1/Project1"
+    end
+  end
 end

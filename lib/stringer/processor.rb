@@ -38,7 +38,7 @@ module Stringer
     #
     # Returns the path
     def dir_path_for_dir_with_same_name_as_parent_dir
-      current_dir_path = File.dirname(__FILE__)
+      current_dir_path = Dir.pwd
       current_dir_name = File.basename(current_dir_path)
       File.join(current_dir_path, current_dir_name)
     end
