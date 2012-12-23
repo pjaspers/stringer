@@ -30,4 +30,35 @@ describe Stringer::StringsFile do
       @file.translation_hash["a.key"].must_equal "Translated Key"
     end
   end
+
+  describe "applying a new file to the old one" do
+    before do
+      old_file = <<FILE
+/* A comment */
+"a.key" = "Translated Key";
+"_.another.key = "Dynamic key";
+FILE
+
+      new_file =  <<FILE
+/* A comment */
+"a.key" = "Changed Translated Key";
+"b.key" = "New B key";
+FILE
+      @old = Stringer::StringsFile.new(old_file.split("\n"))
+      @new = Stringer::StringsFile.new(new_file.split("\n"))
+      @old.apply(@new)
+    end
+
+    it "should have added the b.key" do
+      assert_includes @old.translation_hash.keys, "b.key"
+    end
+
+    it "should have not have changed the contents of the a.key" do
+      assert_equal "Translated Key", @old.translation_hash["a.key"]
+    end
+
+    it "should not remove dynamic keys" do
+      assert_includes @old.translation_hash.keys, "_.another.key"
+    end
+  end
 end
