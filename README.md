@@ -45,6 +45,20 @@ Which will output something like this:
      - Added 3 keys (die.tijd;duvels;piet...)
      - Removed 1 key (dotter...)
 
+## Extras
+
+### Dynamic keys
+
+Not all NSLocalizedString keys are created equally, in fact, being able to create keys in a loop a Good Thing, unfortunately `genstrings` won't pick these up. To avoid stringer from deleting these strings, start you key with a `_` and Stringer won't touch them.
+
+E.g.
+
+```
+for (NSString *key in @[@"one", @"two"]) {
+  [[NSBundle mainBundle] localizedStringForKey:[NSString stringWithFormat:@"_sections.list.%@", key] value:@"" table:nil];
+}
+```
+
 ## The future
 
 `0.1.0`: Iron out bugs and missing options.

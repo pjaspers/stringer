@@ -7,7 +7,7 @@ Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
   t.libs << 'specs'
   t.pattern = 'specs/**/*_spec.rb'
-  t.verbose = true
+  t.verbose = false
 end
 
 task :default => :test
