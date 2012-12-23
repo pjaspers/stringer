@@ -44,6 +44,15 @@ module Stringer
       end
     end
 
+    # Not all NSLocalizedString keys are created equally, in fact, being able to
+    # create keys in a loop a Good Thing. `Stringer` will treat all keys starting
+    # with a _ as dynamic keys, and will never try to remove them.
+    #
+    # Returns a bool
+    def dynamically_generated_key?(key)
+      key.start_with? "_"
+    end
+
     def translation_hash
       return @translation_hash if @translation_hash
 
@@ -63,6 +72,7 @@ module Stringer
 
     def apply(other_string_file)
       removed_keys = translation_hash.keys - other_string_file.translation_hash.keys
+      removed_keys = removed_keys.reject {|k| dynamically_generated_key?(k)}
       added_keys = other_string_file.translation_hash.keys - translation_hash.keys
       @translation_hash = other_string_file.translation_hash.merge(translation_hash)
       removed_keys.each {|k| @translation_hash.delete(k)}

@@ -36,6 +36,7 @@ describe Stringer::StringsFile do
       old_file = <<FILE
 /* A comment */
 "a.key" = "Translated Key";
+"old.key" = "Unused key";
 "_.another.key = "Dynamic key";
 FILE
 
@@ -55,6 +56,10 @@ FILE
 
     it "should have not have changed the contents of the a.key" do
       assert_equal "Translated Key", @old.translation_hash["a.key"]
+    end
+
+    it "should remove keys no longer in use" do
+      refute_includes @old.translation_hash.keys, "old.key"
     end
 
     it "should not remove dynamic keys" do
