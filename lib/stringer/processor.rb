@@ -54,9 +54,9 @@ module Stringer
 
     def run
       log("Generating #{@locale}.lproj")
-      original_file = StringsFile.new(strings_file_path)
+      original_file = StringsFile.with_file(strings_file_path)
       if system(genstrings_command)
-        new_file = StringsFile.new(strings_file_path)
+        new_file = StringsFile.with_file(strings_file_path)
         added_keys, removed_keys = original_file.apply(new_file)
         show_changes(added_keys, "Added")
         show_changes(removed_keys, "Removed")
