@@ -49,7 +49,7 @@ module Stringer
 
     # Returns an array of all files needed to be processed.
     def files
-      `find #{@files_folder} -name \*.m`.split("\n")
+      `find #{@files_folder} -name \*.m -o -name \*.swift`.split("\n")
     end
 
     def run
